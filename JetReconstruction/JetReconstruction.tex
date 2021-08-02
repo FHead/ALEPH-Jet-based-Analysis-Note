@@ -1,7 +1,40 @@
-\section{Jet Reconstruction}
+\section{Jet Reconstruction}\label{Section:JetReconstruction}
 
-\section{Jet Calibration}
+\subsection{Jet Clustering}
 
-\section{Jet Resolution}
+Jets are constructed using the \ak algorithm with the \ee variant, which is described below. In this analysis, a resolution parameter of $R_0 = 0.4$ is considered. This resolution parameter was chosen since it is widely used in the jet analyses in proton-proton and heavy-ion collisions carried out at the hadron colliders. Moreover, the chosen value also gives us an opportunity to examine the shower from quarks in detail. According to the \fastjet user's manual~\cite{Cacciari:2005hq,Cacciari:2011ma}, the distance metric is set to be
+%
+\begin{align}
+    d_{ij} &= \min\left(E_i^{-2}, E_j^{-2}\right) \dfrac{1 - \cos \theta_{ij}}{1 - \cos R_0}\\
+    d_{iB} &= E_i^{-2},
+\end{align}
+%
+where $d_{ij}$ is the distance between two pseudojets $i$ ad $j$, $E_i$ is the energy, and $\theta_{ij}$ is the opening angle.  The termination is defined by the distance to beam-pipe, $d_{iB}$. This is different from the use of transverse momenta and pseudorapidities of constituents in algorithm for hadron-hadron colliders.  The option used is as follows:
+%
+\begin{verbatim}
+JetDefinition Definition(ee_genkt_algorithm, 0.4, -1);
+\end{verbatim}
+
+In the data analysis, energy flow objects which are reconstructed using the tracker and calorimeter information, are used for jet reconstruction. Generator-level jets are clustered by considering all visible final state particles by the ALEPH detector (i.e., excluding neutrinos).  Reconstructed-level jets are clustered with all energy-flow candidates reconstructed by the tracker and calorimeters.
+
+To avoid jets which are partially outside the detector acceptance (around the beam pipe), in this analysis, we only consider jets within $0.2\pi < \theta_\text{jet} < 0.8\pi$, where $\theta_\text{jet}$ is the angle between the jet 3-momentum vector and electron beam direction.
+
+\subsection{Jet Grooming}
+\label{Subsection:JetGrooming}
+
+To study the hard part of the jet and to suppress the contribution from soft radiations, we also considered groomed jet quantities by a version of the \sd algorithm for the \ee collisions.  The \sd algorithm proceeds by first reclustering all jet constituents using the Cambridge-Aachen algorithm, again modified using opening angle and constituent energy as the metric.
+
+The clustering history can be represented as a binary tree.  The tree is then traced, and a declustering procedure is carried out, starting from the root node and following the branches at each step with higher energy.  At each node of the tree, the \sd condition is examined:
+%
+\begin{align}
+    z \equiv \dfrac{\min(E_1, E_2)}{E_1 + E_2} \leq z_\text{cut} \left(\dfrac{\theta_{12}}{R_0}\right)^\beta,
+\end{align}
+%
+where indices 1 and 2 represent the two branches originating from the node, and the $\theta_{12}$ is the opening angle.  The parameters $z_\text{cut}$ and $\beta$ are free parameters, and in this work we choose $z_\text{cut} = 0.1, \beta = 0.0$.  If the condition is met, the algorithm stops, and the $z$ and $\theta$ are denoted as $\zg$ and $\Rg$.  If the condition is not met, we go to the next node in the tree.
+
+The groomed mass $M_G$ is defined as the invariant mass of the two branches of the node where the algorithm terminates.
+
+
+\clearpage
 
 

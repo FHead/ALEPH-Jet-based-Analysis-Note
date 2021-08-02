@@ -1,2 +1,178 @@
-\section{Leading Jet Selection}
+\section{Leading Jet Selection}\label{Section:LeadingJet}
 
+When the ``global leading jets'', the leading jet in the event without detector acceptance requirement, overlap with the dead region (close to the beam), some of the jet energy will not be detected, and they will appear as lower energy jets.  Therefore additional selection is designed in order to ensure that the leading jets within acceptance ($0.2\pi < \theta_\text{jet} < 0.8\pi$) are the global leading jets, without actually requiring the event-wide leading jet direction.
+
+
+\subsection{Total Visible Energy}
+
+The simplest quantity that one can think of is the total energy of all visible particles within the acceptance ($0.2\pi < \theta < 0.8\pi$).  Since in an \ee collision, the total energy is known, a low number of total visible momentum implies that there is a higher chance of a jet overlapping with the dead region.
+
+Figure~\ref{Figure:LeadingJet-SumEFraction} shows the fraction of events with both leading jets inside acceptance as a function of the total visible particle energy within the same acceptance.  The efficiency of the cut, defined as the percentage of events passing said total energy cut, can be found in Fig.~\ref{Figure:LeadingJet-SumEEfficiency}.  A cut at 83~GeV, which corresponds to about 99\% purity, is about 60\% efficient.  
+
+Since jets are extended objects, if a jet is too close to the edge of the acceptance, some of the jet energy will leak out of the acceptance region and effectively lowers the total visible energy.  Therefore \textit{a priori} we expect the cut efficiency to be between $1-2\times \frac{2\pi(1-\cos(0.2\pi))}{4\pi} = 80.9\%$ and $1-2\times\frac{2\pi(1-\cos(0.2\pi+0.4))}{4\pi} = 51.6\%$, which is obtained by assuming perfect back to back dijets and a spherically uniform distribution.
+
+This effect can be more clearly seen in Fig.~\ref{Figure:LeadingJet-SumEJetTheta}, where the total visible energy within acceptance is correlated with the leading jet direction.  A clear dependence of the total visible energy when the leading jet is close to the edge is observed.
+
+It can be improved by using a wider range of acceptance for particles compared to the jets.  This however has a negative side effect of significantly lowering the purity of the cut.  In order to maintain similar purity, the cut position needs to be raised, thereby lowering the efficiency.
+
+Due to this reason, a refined quantity, the hybrid total energy, is considered.
+
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{LeadingJetSelection/PythiaGen020-19.pdf}
+    \includegraphicstwo{LeadingJetSelection/PythiaGen020-21.pdf}
+    \caption{Left: purity of events where leading dijets are inside acceptance as a function of the total visible energy.  Right: zoomed-in version of the same plot.}
+    \label{Figure:LeadingJet-SumEFraction}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonesmall{LeadingJetSelection/PythiaGen020-26.pdf}
+    \caption{Cut efficiency as a function of the total visible energy cut position.}
+    \label{Figure:LeadingJet-SumEEfficiency}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{LeadingJetSelection/LeadingJetThetaSumE.pdf}
+    \caption{Correlation between leading jet $\theta$ and total visible energy.  When the leading jet is close to the edge of the acceptance, a visible distortion is seen on the total visible energy due to the leaked energy.}
+    \label{Figure:LeadingJet-SumEJetTheta}
+\end{figure}
+
+\subsection{Hybrid Total Energy}
+
+In order to reduce edge effects on the total energy calculation, we define a hybrid total energy for this analysis, which is the energy sum of the following set of particles (\HybridE):
+%
+\begin{align}
+    &\{\text{Particles within acceptance}\} \\\nonumber
+    \cup \;\; &\{\text{Particles with angle $< 0.4$ to axes of any jet above $X$ GeV inside acceptance}\},
+\end{align}
+%
+% \fixme{[The other thing is: why don't we include the constituents of the jets instead?]} \followup{We can also try this - I don't see any big advantage for choosing one over the other.}
+%
+where the acceptance is defined as $0.2\pi < \theta < 0.8\pi$.  The nominal jet threshold is 5 GeV.  It has been checked by varying it to 1 GeV, and there is negligible effect on the purity and efficiency.  This can be understood since the leading jets are typically higher in energy, and regardless of this threshold, the leaked energy from the leading jets will be included.
+The correlation between the leading jet $\theta$ and \HybridE is shown in Fig.~\ref{Figure:LeadingJet-HybridEJetTheta}.  The edge effect is greatly reduced with this new variable definition.
+
+The purity and efficiency are shown in Fig.~\ref{Figure:LeadingJet-HybridEFraction} and \ref{Figure:LeadingJet-HybridEEfficiency}, respectively.  There is an increase in cut efficiency compared to simple total visible energy due to the recovery of leaked energy.  The nominal cut correspond to 99\% purity, which is 83 GeV.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{LeadingJetSelection/LeadingJetThetaHybridE.pdf}
+    \caption{Correlation between leading jet $\theta$ and total visible energy.  The distortion on the \HybridE is greatly reduced compared to the simpler total visible energy.}
+    \label{Figure:LeadingJet-HybridEJetTheta}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{LeadingJetSelection/JetComparison_Hybrid020_28.pdf}
+    \includegraphicstwo{LeadingJetSelection/JetComparison_Hybrid020_30.pdf}
+    \caption{Left: Purity of the selection as a function of \HybridE.  Right: Zoomed in version.}
+    \label{Figure:LeadingJet-HybridEFraction}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonesmall{LeadingJetSelection/JetComparison_Hybrid020_35.pdf}
+    \caption{Cut efficiency as a function of \HybridE cut location.}
+    \label{Figure:LeadingJet-HybridEEfficiency}
+\end{figure}
+
+The resolution of reconstructed \HybridE as a function of generated \HybridE can be found in Fig.~\ref{Figure:LeadingJet-HybridEResolution}.  Around the places of the cut (80-85 GeV), the resolution is 12.5\%.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonesmall{LeadingJetSelection/HybridESumResolution.pdf}
+    \caption{Resolution of reconstructed \HybridE as a function of generated \HybridE.}
+    \label{Figure:LeadingJet-HybridEResolution}
+\end{figure}
+
+\subsection{Correction Factor}\label{Subsection:LeadingJetCorrection}
+
+The efficiency of the cut depends on the leading dijet energies, since \HybridE includes the energies of the jets.  When the jet energies are high, it is more likely that \HybridE is high as well.  On the other hand, when leading jet energies are lower, there is a chance that there is a significant third jet out of the acceptance, and lowers the \HybridE, even though both leading dijets are inside acceptance.  Therefore a correction is needed to account for this effect.
+
+The current approach is to derive correction factors from simulation.  It is not perfect, however, since it depends not only on the kinematics, but also jet spectra.  It is necessary to quote systematic uncertainties on the imperfection of the model dependence.
+
+The correction factor is defined as follows:
+%
+\begin{align}
+    \text{Correction} = \dfrac{N(\text{Both dijet within acceptance})}{N(\text{Both dijet within acceptance and pass \HybridE selection})}.
+\end{align}
+%
+Separate corrections are derived for as a function of leading dijet jet energy and as a function of leading dijet total energy.  The unfolding, described in Sec.~\ref{Section:Unfolding}, unfolds detector smearing effects, and this correction factor is applied on top of the unfolded spectra, as illustrated below:
+%
+\begin{align}
+    &\text{Detector-level spectra with \HybridE selection}\nonumber\\
+    \xrightarrow{\text{Unfolding}}\; &\text{Truth-level spectra with \HybridE selection} \nonumber\\
+    \xrightarrow{\text{Correction}}\; &\text{Truth-level spectra with no \HybridE selection}.
+\end{align}
+%
+A potential alternative strategy is to take care of both steps with the unfolding.  This however has a adverse side effect where the unfolding step fills in jet spectra from simulation for events which fail \HybridE selection.  By doing it in two steps, we only take the ratio of spectra from simulation, and reduce (somewhat) the model dependence.
+
+The selection efficiency (inverse of the correction factor) as functions of leading dijet jet energy and total energy are shown in Fig.~\ref{Figure:LeadingJet-HybridECorrection}.  They are fitted with
+%
+\begin{align}
+    f(E) = \min\left(a_0 + a_1 E, a_2 + a_3 \times  \text{erf}\left(\dfrac{E - a_4}{a_5}\right) \times  (1+a_6 E)\right),
+\end{align}
+%
+and
+%
+\begin{align}
+    f(E) = \min(a_0 + a_1 E, 1.0)
+\end{align}
+%
+respectively.  The nominal parameters are reported in Tab.~\ref{Table:LeadingJet-HybridECorrection}.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{LeadingJetSelection/CorrectionFactor-7.pdf}
+    \includegraphicstwo{LeadingJetSelection/CorrectionFactor-3.pdf}
+    \caption{Efficiency (inverse of the correction factor) as a function of leading dijet jet energy (left) and dijet total energy (right).  The nominal fit function is also shown, together with the uncertainty band from the fit.}
+    \label{Figure:LeadingJet-HybridECorrection}
+\end{figure}
+
+\begin{table}[htp!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+ & Leading Dijet Jet Energy & Leading Dijet Total Energy \\\hline
+$a_0$ & $0.300085 \pm 0.006641$ & $0.195666 \pm 0.001712$ \\\hline
+$a_1$ & $0.025771 \pm 0.000328$ & $0.009920 \pm 0.000022$ \\\hline
+$a_2$ & $1.082800 \pm 0.000280$ & - \\\hline
+$a_3$ & $0.203061 \pm 0.000304$ & - \\\hline
+$a_4$ & $36.013658 \pm 0.011172$ & - \\\hline
+$a_5$ & $8.273973 \pm 0.019290$ & - \\\hline
+$a_6$ & $-0.004598 \pm 0.000004$ & - \\\hline
+    \end{tabular}
+    \caption{The nominal parameters for the efficiency fit.}
+    \label{Table:LeadingJet-HybridECorrection}
+\end{table}
+
+\subsection{Variations to the Correction Factors}\label{Subsection:LeadingJetCorrectionVariation}
+
+The nominal correction factor is derived from the simulation, and therefore it is model-dependent.  In order to address the imperfect modeling, the simulated sample is reweighted based on the inclusive jet energy spectrum.  The ratio of the inclusive jets within nominal acceptance ($0.2\pi < \theta < 0.8\pi$) between the unfolded data and generator level MC distribution is first derived in fine bins, as shown in figure~\ref{Figure:LeadingJet-CorrectionVariationWeight}.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{LeadingJetSelection/ReweightingMeow-3.pdf}
+    \caption{Jet weights based on the inclusive spectra in acceptance}
+    \label{Figure:LeadingJet-CorrectionVariationWeight}
+\end{figure}
+%
+
+The weight is then applied to all generated jets (also outside of acceptance) in a PYTHIA8 sample where there is no generator-level cuts on the final state particle directions.  Each event is weighted by the product of the weights for all jets in the event.  The underlying assumption for this procedure is that the degree of disagreement between simulation and data is similar inside acceptance and outside acceptance, and therefore by reweighting also the jets out of the acceptance, we can estimate how much the mismodeling between data and simulation can change the leading jet correction.
+
+The result is shown in figure~\ref{Figure:LeadingJet-CorrectionVariation}, where we compare the derived correction factor using original and the reweighted simulated samples.  There is up to $\pm 10\%$ variation observed.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{LeadingJetSelection/LeadingDiJetE-4.pdf}
+    \includegraphicstwo{LeadingJetSelection/LeadingDiJetSumE-4.pdf}
+    \caption{Variation in correction based on reweighted simulation for (left) leading dijet energy and (right) leading dijet total energy.}
+    \label{Figure:LeadingJet-CorrectionVariation}
+\end{figure}
+
+
+\clearpage

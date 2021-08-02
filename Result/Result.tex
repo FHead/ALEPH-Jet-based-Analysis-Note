@@ -1,0 +1,104 @@
+\section{Result}\label{Section:Result}
+
+In this section, we present the fully corrected jet spectra and compared them with PYTHIA 6, PYTHIA 8, HERWIG 7, SHERPA event generators. The results are also compared to analytical calculations with perturbative QCD. Finally, predictions from the PYQUEN event generator, which added jet quenching effect to the simulated $e^+e^-$ events, are also overlapped to illustrate the possible modifications due to the presence of a strongly interacting medium.
+
+The first unfolded inclusive jet energy spectrum with ALEPH archived hadronic $Z$ decay data collected in 1994 is shown in Figure~\ref{Figure:Result-JetEnergy}. A peak structure could be observed at around half of the $Z$ boson mass. This is mainly coming from $Z\rightarrow q\bar{q}$ and parton shower of one of the outgoing (anti-)quark is almost fully captured by the anti-$k_T$ algorithm with a resolution parameter of 0.4. 
+
+The spectrum decreases rapidly as one moves to lower and lower jet energy and reaching a minimum at around 20 GeV. Below that, the spectrum increases as we go to even lower energy. The spectrum shape is captured by most of the event generators, although at low jet energy, HERWIG 7, which has the worse description of the result, over-predicts the jet spectrum at low jet energy. 
+
+PYQUEN generator which include a large jet quenching effect predicts a large reduction of the population at around 45 GeV and a significant increase on the number of jet at low jet energy.
+
+The same data could also be compared to a next-to-leading order perturbative QCD calculation. As shown in Figure~\ref{Figure:Result-JetEnergyJoao}, the NLO calculation predicts a sharper peak at large jet energy. It would be very interesting to compare the result to NNLO calculations.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowPLog.pdf}
+    \caption{(Upper panel) Inclusive jet energy distribution in $0.2\pi<\theta_{\rm jet}<0.8 \pi$. The yellow boxes are the systematical uncertainties. The predictions from event generators are shown as colored curves (Lower panel) The ratio of theoretical predictions to data}
+    \label{Figure:Result-JetEnergy}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowPLogJoao.pdf}
+    \caption{Inclusive jet energy distribution in $0.2\pi<\theta_{\rm jet}<0.8 \pi$ compared to a next-to-leading order perturbative QCD calculation}
+    \label{Figure:Result-JetEnergyJoao}
+\end{figure}
+
+
+\clearpage
+
+In order to characterize the substructure inside the anti-$k_T$ jets, the groomed momentum sharing $\zg$ spectra and the opening angle of subjets $\Rg$ are presented in bins of jet energy. As shown in Figure~\ref{Figure:Result-JetZG}, the $\zg$ spectrum is falling as a function of $\zg$ value, reaching a minimum at $\zg\sim 0.5$, which is similar to the data from proton-proton and heavy-ion collisions. At high jet energy, HERWIG 7 over-predicts the jets with $\zg$ close to 0.5. In most of the jet energy intervals, PYTHIA 6, PYTHIA 8 and SHERPA under-predict the number of jets at large $\zg$ by roughly 10\% while they over-predict the $\zg$ spectra at low $\zg$. 
+
+The agreement between $\Rg$ spectra and event generators, as shown in Figure~\ref{Figure:Result-JetRG} is worse than that observed in the comparison of $\zg$ spectra. At high jet energy, event generators predicts a slightly narrower $\Rg$ spectra compared to data. At low jet energy, the event generators predict on average a larger separation between subjects (larger $\Rg$) than the unfolded data. PYQUEN generator that include jet quenching effect predicts an even larger fraction of jets with large $\Rg$
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowZG.pdf}
+    \caption{The groomed momentum sharing $\zg$ spectra for jets in 7 different energy intervals.}
+    \label{Figure:Result-JetZG}
+\end{figure}
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowRG.pdf}
+    \caption{The groomed opening angle $\Rg$ sepctra for jets in 7 different energy intervals}
+    \label{Figure:Result-JetRG}
+\end{figure}
+
+\clearpage
+
+The mass of the jet is sensitive to the scale where the initial high energy parton is created.  Due to the large correlation between jet mass and jet \Rg, we observe similar qualitative behavior: the mass/E is smaller at higher jet energy, and increases progressively with decreasing jet energy.
+
+The effect of a potential jet energy loss effect as modeled by the PYQUEN generator is the strongest with a small jet energy, and diminishes with higher jet energy.
+
+By comparing the groomed mass (Figure~\ref{Figure:Result-JetMGE}) with the ungroomed mass (Figure~\ref{Figure:Result-JetME}) it is evident that there is a systematic shift to lower values for the groomed mass, as expected by the grooming procedure, which removes large angle energy, whereby lowering the mass.  The difference between the two masses is sensitive to the amount of (relatively) large angle radiation of the jet.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowME.pdf}
+    \caption{M/E}
+    \label{Figure:Result-JetME}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowMGE.pdf}
+    \caption{$M_G/E$}
+    \label{Figure:Result-JetMGE}
+\end{figure}
+
+\clearpage
+
+The leading dijet energy is shown in Figure~\ref{Figure:Result-DiJetE}.  The spectra is normalized to the number of events passing the baseline selection described in earlier sections.  A decent agreement between the generators and the unfolded data is observed.  Due to the leading dijet selection, the rise at low jet energy is suppressed.  The sum of the two leading dijet is shown in Figure~\ref{Figure:Result-DiJetSumE}.  The levels of (dis)agreement between the for simulation and data for leading dijet energy and the leading dijet total energy is similar.  The total energy, which is equivalent to $\sqrt{s}$ minus the sum of all the small jets, is more sensitive to modeling of subleading jets.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowLeadingDiJetECorrected.pdf}
+    \caption{Leading dijet energy.}
+    \label{Figure:Result-DiJetE}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Result/MeowLeadingDiJetSumECorrected.pdf}
+    \caption{Leading dijet total energy.}
+    \label{Figure:Result-DiJetSumE}
+\end{figure}
+
+\clearpage
+
+The final final result is shown in Figure~\ref{Figure:Result-FinalResult}.  It looks comfortable and pleasant to touch.  What a nice figure!
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{ToBeDone.jpg}
+    \caption{The final result.  It looks beautiful!}
+    \label{Figure:Result-FinalResult}
+\end{figure}
+
+\clearpage
+
+
+

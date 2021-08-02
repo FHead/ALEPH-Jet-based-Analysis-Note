@@ -1,1 +1,33 @@
-\section{Event Selection}
+\section{Event Selection}\label{Section:Selection}
+
+\subsection{Hadronic event selection}
+
+Hadronic $Z$ boson decay events are selected by requiring the sphericity axis to have a polar angle in the laboratory reference frame ($\theta_{\text{lab}}$) between $7\pi/36$ and $29\pi/36$ to ensure that the event is well contained within the detector. At least five tracks having minimum total energy of 15 GeV are also required to suppress electromagnetic interactions~\cite{Barate:1996fi}. 
+
+The residual contamination from processes such as $e^+e^-\rightarrow\tau^+\tau^-$ is expected to be less than 0.26\% for these event selections based on the studies documented in ~\cite{Barate:1996fi}.
+
+\subsection{Mercedes-Benz event rejection}
+
+Through an application of multivariate analysis, we discovered that there is a type of pathological event where we have a number of 40-45 GeV particles arranged in a Mercedes-Benz-like (MBl) pattern.  One example event display is shown in Fig.~\ref{Figure:Selection-MercedesBenz}.
+
+The source of this type of event is mainly from laser calibration events and the pattern is an artifact of the low level reconstruction algorithm. Due to the feature of having multiple high-energy particles, we can easily sieve out this type of event by considering the total visible momentum, defined as the sum of the magnitude of the momenta for all reconstructed particles, shown in Fig.~\ref{Figure:Selection-MercedesBenzRejection}.  A selection cut at 200 GeV is seen to be efficient in rejecting this type of event.  Note that most of the MBl events are from data taken in 1995.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{EventSelection/MercedesBenz1.png}
+    \includegraphicstwo{EventSelection/MercedesBenz2.png}
+    \caption{Example of the ``Mercedes-Benz'' events.  The thin lines indicate the axes ($x$ = red, $y$ = green, $z$ = blue).  Light blue lines are the particles, with the length proportional to the momentum of the particle.  The particles are all around 40 GeV.  The right panel show the view from the $-z$ direction.  Each of the three branches typically has 4-7 particles.}
+    \label{Figure:Selection-MercedesBenz}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonesmall{EventSelection/TotalMomentum.pdf}
+    \caption{Total visible momentum distribution for data (taken between 1992 and 1995) and simulation %[What is that MC event at 550 GeV!?]
+    }
+    \label{Figure:Selection-MercedesBenzRejection}
+\end{figure}
+
+\clearpage
+
+

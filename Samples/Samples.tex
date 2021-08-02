@@ -1,7 +1,22 @@
 
-\section{Samples}
+\section{Data and Monte Carlo Samples}
+\label{Section:Samples}
 
 \subsection{Data Samples}
 
+This study is performed with hadronic $Z$ decays. The archived $e^+e^-$ annihilation data at a center-of-mass energy of 91 GeV were collected with the ALEPH detector at LEP~\cite{Decamp:1990jra} in 1994. To analyze these data, an MIT Open Data format was created~\cite{Tripathee:2017ybi} and was validated and used in the two-particle correlation function analysis~\cite{Badea:2019vey}. Currently, only the data taken in 1994 is analyzed because of the availability of the archived Monte Carlo simulation. In the future, more data could be added when the archived Monte Carlo samples from different years become available.
+
 \subsection{Simulation Samples}
 
+Archived $\textsc{pythia}$ 6.1~\cite{Sjostrand:2000wi} Monte Carlo (MC) simulation samples, which was produced with the 1994 run detector condition by the ALEPH collaboration, was the only available archived MC sample at the time of this analysis. The MC samples are used for the derivation of jet energy correction factors, event selection efficiency and corrections and acceptance effect corrections.
+
+A set of new $\textsc{pythia}$ events are generated with $\textsc{pythia}$8 version 8.303 at a center-of-mass energy of 91.2~GeV.  The Monash 2013 tune is used, with the weak boson exchange and weak single boson processes turned on.  Pure electroweak events are rejected by filtering the outgoing particles in the hard process to contain at least one non-leptonic particle.
+
+Sherpa samples are generated with version 2.2.5, with electron positron events generating 2--5 outgoing partons, which are then showered into jets.  $\alpha_s (M_Z)$ is set to 0.1188.
+
+A set HERWIG samples\cite{Bellm:2015jjp} is generated using version 7.2.2.  2--3 outgoing partons are specified in the hard process, and leptonic decays of $Z$ boson is turned off to increase the fraction of hadronic events.  The order of $\alpha$ coupling is set to 2, whereas the colored $\alpha_s$ order is set to 0.
+
+In order to understand effects from potential quenching effects~\cite{Bjorken:1982tu,ATLAS:2010isq,CMS:2011iwn}, a sample is generated with the PYQUEN generator~\cite{Lokhtin:2005px} (version 1.5.3).  The strength of the quenching is set to be equivalent to a minimum bias sample of PbPb collisions at 5.02 TeV.  Two subsamples are generated, with and without explicit wide-angle radiations of partons.  The default spectra shown in the results are without wide-angle radiations.
+
+
+\clearpage

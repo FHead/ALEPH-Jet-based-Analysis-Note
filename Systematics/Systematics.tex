@@ -1,0 +1,132 @@
+\section{Systematic Uncertainties}\label{Section:Systematics}
+
+A common set of systematic uncertainty sources are considered for all observables, and in addition for the leading jet observables, uncertainty sources related to the leading dijet selection is applied.
+
+The common systematic sources can be categorized into the following categories, to be described in subsequent subsections: jet energy scale and resolution uncertainties, fake jets and unfolding-related uncertainties.
+
+\subsection{Jet Calibration and Resolution Uncertainties}
+
+The uncertainties related to the jet calibrations are split into different sources: the non-closure to deal with imperfections of simulation-based jet calibration, and the jet energy scale/resolution variation for difference between data and simulation.
+
+\subsubsection{Residual Jet Energy Scale}
+
+The jet energy scale uncertainty targets the potential difference between data and simulation.  The residual jet energy correction is varied by 0.5\% both up and down from the nominal value, and the variation in the unfolded spectrum is taken as the uncertainty associated with the residual jet energy scale.  It is a conservative choice which covers the observed spread in the residual jet energy correction derivation.
+
+\subsubsection{Residual Jet Energy Resolution}
+
+The jet energy resolution varies from 0\% to 5\% worse in data compared to simulation, depending on the jet direction.  Therefore the nominal value of the resolution scale factor is taken as 2.5\%, and a variation from 0\% to 5\% is taken as the systematic variation.  The unfolded spectra using varied jet energy resolution is quoted as the uncertainty.
+
+\subsection{Fake Jets}
+
+Fake jets are defined as the accidental clusters of energy in the final state that do not correspond to an initial high energy parton produced in the hard process.  The contribution for fake jets are estimated by using only reconstructed jets that are matched to a hard process parton.  The unfolded spectrum is then compared with the nominal unfolded result from simulation.  The difference between the two is quoted as the uncertainty for the fake jet contribution.
+
+\subsection{Unfolding Uncertainties}
+
+\subsubsection{Choice of Prior}
+
+In the \Bayes formalism, there is a possibility to supply a prior knowledge of how the unfolded spectrum should look like.  The nominal result is done with a flat prior (i.e., no prior knowledge of the unfolded result).  Since a flat prior is still a choice we make, it is necessary that we test the effects from this assumption.  In order to estimate effect, the unfolding is redone using the simulated spectrum as the prior.  The difference in the unfolded spectra is then taken as the uncertainty from this source.
+
+\subsubsection{Choice of Regularization}
+
+The regularization parameter is varied to assess the impact on the choice.  The number of unfold iteration is varied by 1 on both sides from the optimal number determined with a procedure described in Section~\ref{Section:Unfolding}.  The difference to the nominal result is then quoted as the uncertainty.
+
+\subsubsection{Unfolding Method}
+
+In order to address any potential bias in the \Bayes methodology itself, an alternative unfolding method, \SVD is used.  The unfolded spectra between the two unfolding methods are compared, and the difference is taken as systematic uncertainty.
+
+\subsubsection{Closure in Simulation}
+
+The nonclosure, or the difference between the unfolded simulated spectra and the generated spectra, is quoted as a source of uncertainty.  Any potential miscalibration of simulation-based jet energy correction will be covered by this.
+
+[fixme: this also covered a number of other effects - fill them in as we go]
+
+
+\subsection{Leading Jet Selection Uncertainties}
+
+The uncertainty described in this subsection applies only to the leading jet measurements.
+
+\subsubsection{Choice of Cuts}
+
+The nominal cut is selected for 99\% purity for the leading dijet selection.  The variation is chosen by cuts for 98\% and 99.5\% purity.  Unfolding is performed for each of the variation, and the difference in the unfolded spectra is quoted as the systematic uncertainty.
+
+
+\subsubsection{Resolution Effects}
+
+The resolution of \HybridE is evaluated in Section~\ref{Section:LeadingJet}.  The value of \HybridE is smeared event-by-event in simulated sample according to the resolution, and the unfolding is performed on the smeared sample, and the difference in the spectra is examined.
+
+
+\subsubsection{Correction}
+
+The nominal correction is derived from simulation, as described in section~\ref{Subsection:LeadingJetCorrection}.  The reweighting procedure to estimate potential mismodeling of the simulation is described in section~\ref{Subsection:LeadingJetCorrectionVariation}.  The ratio in the derived correction factor is used as the base for the systematic uncertainty, with care taken to bridge the gap where the ratio switches sign to aovid artificial dips in the uncertainty.
+
+
+\subsection{Summary of Uncertainties}
+
+The summary of all the uncertainties considered is shown in this section.
+
+The uncertainties for the inclusive jet spectrum is shown in Figure~\ref{Figure:Systematics-JetE}.  It is dominated by the jet energy resolution and correction uncertainties.  For lower jet energies, the fake jets dominates.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Systematics/SystematicsP.pdf}
+    \caption{Summary of systematic uncertainty for the jet energy spectrum.}
+    \label{Figure:Systematics-JetE}
+\end{figure}
+
+The uncertainties for leading dijet energy is summarized in Figure~\ref{Figure:Systematics-DiJetE}.  The leading dijet selection-related uncertainties limits the accuracy for lower energy jets, while for higher energy jets the usual jet energy correction and resolution uncertainties dominates.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Systematics/SystematicsLeadingDiJet.pdf}
+    \caption{Leading dijet energy systematics}
+    \label{Figure:Systematics-DiJetE}
+\end{figure}
+
+A similar picture is found for the leading dijet total energy, shown in Figure~\ref{Figure:Systematics-DiJetSum}.  In addition to the selection and jet reconstruction, the \SVD uncertainty is seen not to be completely stable for this observable.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Systematics/SystematicsLeadingDiJetSum.pdf}
+    \caption{Leading dijet sum energy systematics}
+    \label{Figure:Systematics-DiJetSum}
+\end{figure}
+
+The uncertainties related to jet mass are shown in figure~\ref{Figure:Systematics-JetME} for inclusive jet mass, and figure~\ref{Figure:Systematics-JetMGE} for the groomed jet mass.  The relative uncertainty for the last bin in each panel varies greatly mainly due to the diminishing statistics in those bins.  The dominant systematics are jet energy reconstruction related, as well as the \SVD variation.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonewide{Systematics/SystematicsME.pdf}
+    \caption{Mass / energy systematics}
+    \label{Figure:Systematics-JetME}
+\end{figure}
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonewide{Systematics/SystematicsMGE.pdf}
+    \caption{Groomed mass / energy systematics}
+    \label{Figure:Systematics-JetMGE}
+\end{figure}
+
+Finally, uncertainties for the groomed \zg (Figure~\ref{Figure:Systematics-JetZG}) and \Rg (Figure~\ref{Figure:Systematics-JetRG} are shown.  Here the jet energy related systematics mostly cancel, and the dominant is the \SVD variation.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonewide{Systematics/SystematicsZG.pdf}
+    \caption{\zg systematics}
+    \label{Figure:Systematics-JetZG}
+\end{figure}
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonewide{Systematics/SystematicsRG.pdf}
+    \caption{\Rg systematics}
+    \label{Figure:Systematics-JetRG}
+\end{figure}
+
+
+
+
+
+
+\clearpage
+

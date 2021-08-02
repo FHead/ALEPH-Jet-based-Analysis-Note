@@ -1,0 +1,96 @@
+\section{Jet Resolution}\label{Section:JetResolution}
+
+\subsection{Simulated Jet Resolution}
+
+The energy, $\theta$, and $\phi$ resolution of the simulated jet is fitted in bins of jet direction $\theta$. The extracted resolution functions could be provided as an useful supplementary information for smearing the theoretical curves or samples from event generators.
+ The fitted energy resolution is shown in Fig.~\ref{Figure:JetResolution-MCPResolution} for all different $\theta$ bins.  Three different empirical functions are tried to fit for the resolution:
+%
+\begin{align}
+    f_\texttt{sqrt(P3)}(p) &= \sqrt{a_0^2 + \dfrac{a_1^2}{E} + \dfrac{a_2^2}{E^2} + \dfrac{a_3^2}{E^3}}\\
+    f_\texttt{sqrt(P4)}(p) &= \sqrt{a_0^2 + \dfrac{a_1^2}{E} + \dfrac{a_2^2}{E^2} + \dfrac{a_3^2}{E^3} + \dfrac{a_4^2}{E^4}}\\
+    f_\texttt{P4}(p) &= a_0^2 + \dfrac{a_1^2}{E} + \dfrac{a_2^2}{E^2} + \dfrac{a_3^2}{E^3} + \dfrac{a_4^2}{E^4},
+\end{align}
+%
+where $a_i$'s are free parameters to be fitted.  The three functions are labeled as \texttt{sqrt(P3)}, \texttt{sqrt(P4)} and \texttt{P4}, respectively, in the plots.  All three functions fit equally well, and a more traditional function (the first one) is chosen as the parameterization of the energy resolution.  The coefficient with the highest power, $a_3$, is seen to be negligible.
+
+When the jets are close to the beam line, the resolution deviates from the functional forms.  It is expected as a significant portion of the jet energy leaks into the dead region.
+
+The $\theta$ resolution is shown in Fig.~\ref{Figure:JetResolution-MCThetaResolution} and the $\phi$ resolution is shown in Fig.~\ref{Figure:JetResolution-MCPhiResolution}.  They are fitted with a simple third-order polynomial function.  Again when the jets are close to the beam line, the behavior is significantly different.  Away from the beam line, the resolution does not depend too much on the jet $\theta$.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-10.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-18.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-26.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-34.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-42.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-50.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-58.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-66.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-74.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-82.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-90.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-98.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-106.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-114.pdf}
+    \caption{Jet momentum resolution in simulated samples as a function of generated jet momentum in different bins of jet $\theta$.  They are fitted with different functional forms, all of which decently describes the resolution.}
+    \label{Figure:JetResolution-MCPResolution}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-123.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-131.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-139.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-147.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-155.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-163.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-171.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-179.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-187.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-195.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-203.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-211.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-219.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-227.pdf}
+    \caption{Jet $\theta$ resolution in simulated samples as a function of generated jet momentum in different bins of jet $\theta$.}
+    \label{Figure:JetResolution-MCThetaResolution}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-236.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-244.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-252.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-260.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-268.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-276.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-284.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-292.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-300.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-308.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-316.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-324.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-332.pdf}
+    \includegraphicsfour{JetResolution/Resolution_JR4_Check-340.pdf}
+    \caption{Jet $\phi$ resolution in simulated samples as a function of generated jet momentum in different bins of jet $\theta$.}
+    \label{Figure:JetResolution-MCPhiResolution}
+\end{figure}
+
+
+\subsection{Jet Resolution Difference Between Data and Simulation}
+
+The resolution in data is examined through leading dijets.  The effective resolution is extracted for data and simulation with the exact same selection, and the ratio between them is taken as the scale factor needed to smear simulated jets to match the resolution in data.  Due to the available amount of statistics, only a constant scale factor (as a function of momentum) is extracted, and it applies primarily to jets with energy around the kinematic peak.
+
+The result is shown in Fig.~\ref{Figure:JetResolution-ResolutionScaleFactor} for $N = 9, X = 3$ GeV.  The resolution scale factor needed ranges from 0--5\%, depending on the jet direction.  Varying $X$ from 3 to 5 GeV changes the scale factor by around 1\%.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{JetResolution/ResolutionRatioSummaryR43.pdf}
+    \caption{Derived jet resolution ratio between data and simulation in different bins of jet $\theta$.  Only the plus side is shown, but it is symmetrized to the negative side as well.}
+    \label{Figure:JetResolution-ResolutionScaleFactor}
+\end{figure}
+
+
+\clearpage

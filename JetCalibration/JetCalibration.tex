@@ -1,0 +1,220 @@
+\section{Jet Calibration}\label{Section:JetCalibration}
+
+\subsection{Jet Calibration Strategy}
+
+Jets are calibrated with a multi-stage strategy.  In the first stage, a Monte Carlo simulation-based jet energy calibration (Section~\ref{Subsection:MCCalibration}) is derived using the archived PYTHIA 6.1 samples.  This correction is then applied on both the simulated sample and the data. There are two additional stages of correction, aimed at correcting the difference between data and simulation.  These ``residual'' corrections correct first the jet energy scale dependence on the jet direction (Section~\ref{Subsection:RelativeSide}), and then the absolute scale using the multijet peak (Section~\ref{Subsection:AbsoluteScale}).  The relative scale derivation described in Section~\ref{Subsection:RelativeScale} serves as an important cross check of the analysis and is not used as the nominal result due to the larger uncertainties.
+
+\subsection{Simulation-based calibration}
+\label{Subsection:MCCalibration}
+
+The simulation based calibration compares the reconstructed jet energy with the generated jet energy.  The mean of the response, defined as the ratio of the reconstructed jet energy to the generated jet energy, is used as the metric for the calibration.
+Jets are matched with an angular requirement where the opening angle is required to be less than half the size of the jet distance parameter.
+
+The calibration is carried out in bins of the reconstructed jet $\theta$, and for each bin a \nth{4} order polynomial function is fitted to the jet response, the ratio between reconstructed jet energy and the generated jet energy, as a function of generated jet energy.  The function is then inverted to obtain the actual correction factors, to be applied to the reconstructed jets.
+
+The raw response and the corrected response as a function of jet energy in different bins of jet $\theta$ is shown in Fig.~\ref{Figure:JetCalibration-JECThetaBin}. These ``closure tests'', the inspection of the jet energy correction factors, focuses on the differences between the corrected jet energies and the generated jet energies in the MC samples. A perfect closure refers to zero average difference between corrected jet energy and the generated jet energy. The performance of jet energy correction is stable for the jets that are within our analysis selection $0.2\pi < \theta_\text{jet} < 0.8\pi$. Non-closure is observed for those jets which are falling (partially) outside of the ALEPH detector acceptances.
+
+The same studies are also performed in bins of jet $\theta$ for different energy intervals in Fig.~\ref{Figure:JetCalibration-JECPBin}.
+A good closure (1\%) is achieved for jets with energy around 10 GeV and within $0.15\pi < \theta < 0.85\pi$.  As shown in those performance plots, the closure is better for higher energy jets.
+For lower energy jets, the response distribution becomes progressively non-Gaussian. Moreover,  a closer look into the jet matching is also needed if we would like to extend the analysis to very low jet energy.
+When jet direction is close to the beam line, the raw response drops fast and the response also becomes non-Gaussian.  A significant effort will be needed to correct and have all uncertainties under control.  From Fig.~\ref{Figure:JetCalibration-JECPBin} we can observe that while the corrected jets look reasonable for jets close to $0.15\pi / 0.85\pi$, the raw response already changes quite rapidly.  It indicates that the jet resolution and jet calibration-related uncertainties will also vary rapidly close to the values.  Therefore in this work we place the boundary at $0.20\pi$--$0.80\pi$.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsfour{JetCalibration/JECClosure-2.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-3.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-4.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-5.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-6.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-7.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-8.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-9.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-10.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-11.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-12.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-13.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-14.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-15.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-16.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-17.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-18.pdf}
+    \includegraphicsfour{JetCalibration/JECClosure-19.pdf}
+    \caption{Jet energy response before (red) and after (black) applying corrections, as a function of jet energy in different bins of jet $\theta$.  A decent closure is seen for jets between $0.15\pi$ and $0.85\pi$ and with energy above 10 GeV.}
+    \label{Figure:JetCalibration-JECThetaBin}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsthree{JetCalibration/JECClosure-20.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-21.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-22.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-23.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-24.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-25.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-26.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-27.pdf}
+    \includegraphicsthree{JetCalibration/JECClosure-28.pdf}
+    \caption{Jet energy response before (red) and after (black) applying corrections, as a function of jet $\theta$ in different bins of jet energy.  A decent closure is seen for jets between $0.15\pi$ and $0.85\pi$.}
+    \label{Figure:JetCalibration-JECPBin}
+\end{figure}
+
+
+
+
+
+\subsection{Data-based calibration: relative scale}
+\label{Subsection:RelativeScale}
+
+Here we present the ``relative scale'' method which was used in many of the jet analysis at the LHC experiment. In this analysis, we used this method as an important cross-check of the main analysis. The relative residual calibration aims to equalize jet response difference as a function of jet direction in data.  Since the simulation-based calibration is done in bins of jet $\theta$, the simulated corrected jet response as a function of jet $\theta$ is assumed to be flat in this step.
+
+The calibration proceeds by calibrating jet response for different jet $\theta$ to the jets in the reference region $0.45\pi < \theta < 0.55\pi$.  We look at leading dijet energy balance where one of the leg is in the reference region, and another is in the target region defined by some interval in $\theta$.  And the mean of the balance, defined as
+%
+\begin{align}
+    R = \dfrac{E_{\text{target}}}{E_{\text{reference}}},
+\end{align}
+%
+is compared between data and simulation to derive the calibration factors.
+
+Since the leading dijet balance depends on the activity of the third-leading (and softer) jets, which may be different between data and simulation and will incur bias, an extrapolation using the magnitude of the third-leading jet is performed.  The size of the third jet is quantified by $\alpha$, which is defined as follows:
+%
+\begin{align}
+    \alpha \equiv \dfrac{E_{3}}{E_{1} + E_{2}}
+\end{align}
+%
+where the index number indicate the jets (1 = leading, 2 = subleading, 3 = third-leading).
+
+Events where the reference jet energy is less than 20 GeV is not considered since a larger non-closure is observed based on studies with Monte Carlo simulation, as well as ones where $\alpha > 0.15$.
+
+The mean dijet balance for data in different bins of target jet $\theta$ as a function of the third jet activity $\alpha$ is shown in Fig.~\ref{Figure:JetCalibration-RelativeResidualData}, and in Fig.~\ref{Figure:JetCalibration-RelativeResidualMC} for simulation.  For jets close to the beam line, there are not enough statistics for a proper extrapolation, and the average value is taken without extrapolation.
+
+The extrapolated response (to $\alpha = 0$) is summarized in the left panel of Fig.~\ref{Figure:JetCalibration-RelativeResidual}, and the correction (ratio of data to simulation) is shown in the middle panel of Fig.~\ref{Figure:JetCalibration-RelativeResidual}.  A variation of the derivation where the maximum $\alpha$ is limited to 0.10 is done, and the result is shown in the right panel of Fig.~\ref{Figure:JetCalibration-RelativeResidual}.  The two versions are consistent within statistical uncertainty.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-7.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-13.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-19.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-25.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-31.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-37.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-43.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-49.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-55.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-61.pdf}
+    \caption{Jet response in data as a function of third jet activity $\alpha$.  The extrapolated value (to $\alpha = 0$) is taken as the representative response in any given bin.}
+    \label{Figure:JetCalibration-RelativeResidualData}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-67.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-73.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-79.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-85.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-91.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-97.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-103.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-109.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-115.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-121.pdf}
+    \caption{Jet response in simulation as a function of third jet activity $\alpha$.  The extrapolated value (to $\alpha = 0$) is taken as the representative response in any given bin.}
+    \label{Figure:JetCalibration-RelativeResidualMC}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-123.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidual-124.pdf}
+    \includegraphicsthree{JetCalibration/CheckDijetResidualVariation-124.pdf}
+    \caption{Left: summary of extrapolated response in data and simulation as a function of jet direction.  Middle: Ratio of extrapolated responses of simulation to data.  Right: ratio of extrapolated response using only $\alpha < 0.1$.}
+    \label{Figure:JetCalibration-RelativeResidual}
+\end{figure}
+
+\clearpage
+
+\subsection{Data-based calibration: relative plus/minus difference}
+\label{Subsection:RelativeSide}
+
+The previous approach ``relative scale'' works, but results in large uncertainties.  Therefore an alternative strategy, ``relative plus/minus difference'' method, is adopted in the end as the main analysis. In this first step, the scale difference between two sides of the detector is derived.  Hereafter the side 0--$0.5\pi$ is referred to as the the ``$-$'' side, and $0.5\pi$--$1.0\pi$ is referred to as the ``$+$'' side.  The relative difference between different $\theta$ bins is combined into the next step during the fits for the absolute scale.
+
+A set of histograms are filled using the leading dijet in the event, limiting the third-leading jet energy to be below $X$ GeV.  $X$ is varied between 3 and 10 GeV to assess potential dependence of the result on the soft jet activity.  The mean jet energy between the positive and the negative side is used to derive this correction.  An example is shown in the left panel of Fig.~\ref{Figure:JetCalibration-ResidualSide}.  The minus side is consistently higher than the positive side.  The result in bins of $\theta$ is summarized in the right panel.  The dependence on third jet activity is small, and the results are consistent with each other.
+
+The same procedure is also carried out in simulated events.  We observe that the positive/negative scale difference is consistent with 1.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{JetCalibration/ResidualSideDataR4-8.pdf}
+    \includegraphicstwo{JetCalibration/ResidualSideSummaryR4.pdf}
+    \caption{Left: Leading dijet energy distribution for the plus (blue) and the minus (red) sides.  An overall scale difference can be seen.  Right: Shifted ratio of the scale between the plus and the minus sides for data (blue, black, red) and simulation (pink), as a function of jet $\theta$.  The ratio is stable in data regardless of third jet activity.  It is consistent with zero for simulation.}
+    \label{Figure:JetCalibration-ResidualSide}
+\end{figure}
+
+\clearpage
+
+\subsection{Data-based calibration: absolute scale}
+\label{Subsection:AbsoluteScale}
+
+The final step of the jet calibration is the absolute scale calibration, and it is done with the multi-jet invariant mass.  Both the simulation-based calibration and the relative correction are applied before deriving the corrections for this step.  Since the collision energy is 91.2 GeV, event-wide jet invariant mass is highly correlated with the $Z$ rest mass.
+
+The calibration proceeds by fitting the parameters of the jet energy correction as a function of jet energy in order to minimize the difference in mean of the invariant mass of the (up to) $N$ leading jets between data and simulation.  The size of the $N$+1-th leading jet is required to be at most $X$ GeV in order to control potential effects from soft jets.  Both $N$ and $X$ are varied to study the sensitivity to soft(er) jets.  The overall scale for each jet $\theta$ bin is also floated.
+
+The fit is set up with all individual events as input.  A $\chi^2$ function is set up to
+%
+\begin{enumerate}
+    \item Correct all jets in data event by event by a set of JEC parameters as input;
+    \item Remove jets out of the acceptance;
+    \item Filter using $N$ and $X$ after correction;
+    \item Calculate the mean of the invariant mass between the 10\% and the 90\% quantile for both simulation and data, in 2\% quantile ranges (i.e., 10-12\%, 12-14\%, ...), in order to avoid outliers ruining the fit;
+    \item Calculate the total $\chi^2$ from the square of the difference of the mean for each quantile range,
+\end{enumerate}
+%
+and the function is passed to the \textsc{Minuit} minimizer in the \textsc{ROOT} library and fit for the parameters of the jet energy correction.
+
+For each $N$ and $X$ combination, the fit is repeated for different orders of polynomial function from 0-th order up to 5-th order.  Various combinations are studied, and they are summarized in Table~\ref{Table:JetCalibration-AbsoluteResidualNXCombination}.
+
+\begin{table}[htp!]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        N & X (GeV) \\\hline
+        2,3,4,5 & 3,5 \\\hline
+        3,4 & 6,7,8,9,10 \\\hline
+        9 & 3,5,6,8,10 \\\hline
+    \end{tabular}
+    \caption{Combinations of $N$ and $X$ explored in deriving the residual corrections.}
+    \label{Table:JetCalibration-AbsoluteResidualNXCombination}
+\end{table}
+
+Due to the shape of the jet energy spectrum (peak at 40-45 GeV and lower in the intermediate energy range, and rising again as jet energy gets lower), and also due to the amount of available statistics, it is determined that fits with a polynomial with order larger than 1 is not stable.  There are only two ``anchor points'', one at high energy and one at low energy.  Having too many degrees of freedom also risks morphing the $Z$ peak shape in data to that of simulation, which is not ideal.
+
+An example result is shown in the left panel of Fig.~\ref{Figure:JetCalibration-AbsoluteResidualExample} for $N = 9, X = 3$ GeV.  The red points shows the spectrum for data before correction, and the points in various shades of blue are the corrected spectra done with different order polynomial.  Green is the simulated spectrum.  In the right panel, the ratio to simulated spectrum is shown.  The vertical lines indicate the location of the 10\% and the 90\% percentile in the simulated spectrum.  We do not observe any significant improvement with higher order correction.
+
+The fitted corrections for all the combinations are shown in Fig.~\ref{Figure:JetCalibration-AbsoluteResidualFitExample} for 0-th order polynomial in the left panel.  The correction is not very sensitive to the choice of $N$ and $X$.  A scan of different threshold for $X = 3$ is shown in the right panel for polynomial order 1.  With too small $N$, the leading jets are all high energy, and the constraining power at low jet energy is limited.  The high energy end around 40-45 GeV however, is always well constrained.  For a linear function, larger $N$ is preferred.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{JetCalibration/ZPeakResidual_9_3-2.pdf}
+    \includegraphicstwo{JetCalibration/ZPeakResidual_9_3-4.pdf}
+    \caption{An example of the fit to the multijet invariance mass spectrum.  Left: uncorrected (red) and corrected (various shades of blue) spectra are compared to the simulated spectrum (green).  After correction the spectra match better.  Right: ratio to the simulated spectrum.}
+    \label{Figure:JetCalibration-AbsoluteResidualExample}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{JetCalibration/ZPeakResidual_ScanResult-22.pdf}
+    \includegraphicstwo{JetCalibration/ZPeakResidual_ScanResult-15.pdf}
+    \caption{Example of fitted corrections with order 0 (left) and 1 (right).  All variations of $N$ and $X$ agree for 0-th order fits, and there is a dependence on number of jets $N$ at low energy.}
+    \label{Figure:JetCalibration-AbsoluteResidualFitExample}
+\end{figure}
+
+In the final fits, an overall factor for each $\theta$ bin is also floated to account for potential scale difference as a function of $\theta$, since we only corrected the plus/minus side difference in the previous step.  For the final correction used in this analysis, the first order polynominal ($O(1)$) function is chosen to allow potential scale difference between higher energy jets and lower energy jets.
+
+
+\clearpage
+
+
+
+

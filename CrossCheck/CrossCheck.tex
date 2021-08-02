@@ -1,0 +1,48 @@
+\section{Cross Checks}\label{Section:CrossCheck}
+
+\subsection{Thrust Cross Check}
+
+The thrust is an event-wide observable which characterizes the overall distribution of particles.  The thrust is defined as
+%
+\begin{align}
+    T \equiv \max_{\hat{n}} \left[ \dfrac{\sum_i | \vec{p}_i \cdot \hat{n} |}{\sum_i | \vec{p}_i |} \right],
+\end{align}
+%
+where $\hat{n}$ is a unit vector, and $\vec{p}_i$ is the momentum of the $i$-th particle.  The $\hat{n}$ that maximizes this quantity defines the thrust axis direction.
+The thrust is close to 1 for dijet events, and small for events with particles spreading out uniformly in all directions.
+
+The thrust distribution has been measured by the ALEPH collaboration [cite].  A cross check using the thrust observable is carried out to check if the obtained unfolded thrust distribution is consistent with what has been published.
+
+The smearing matrix is shown in figure~\ref{Figure:CrossCheck-MatrixThrust}.  The matrix is row-normalized so that the integrals for all rows are equal to unity.  The bin sizes are uniform and correspond to the same binning used in the published result.  A tight correlation between generated and reconstructed thrust is observed.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{CrossCheck/MatrixThrust.pdf}
+    \caption{Smearing matrix for the thrust distribution}
+    \label{Figure:CrossCheck-MatrixThrust}
+\end{figure}
+
+The unfolded result is compared to the published result in the left panel of figure~\ref{Figure:CrossCheck-UnfoldedThrust}, and the ratio in the right.  After unfolding, the distribution agrees much better to the published result.  There is also a correction needed coming from the event selection, which is not applied by default in the unfolded (red) distribution.  The effect of the correction is shown as gray in the ratio plot.  For the majority of ranges, the unfolded distribution agrees with the published result.  There is, however, some remaining discrepancy.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{CrossCheck/ThrustReproductionMeow-2.pdf}
+    \includegraphicstwo{CrossCheck/ThrustReproductionMeow-4.pdf}
+    \caption{(Left panel) Unfolded thrust distribution (red) compared to the published spectra (gray) and the input distribution before unfolding (blue).  (Right panel) Ratio of the spectra to the published result.  The size of the correction is shown in gray.}
+    \label{Figure:CrossCheck-UnfoldedThrust}
+\end{figure}
+
+In order to understand if the discrepancy comes from the unfolding procedure or from some other sources, a forward folding comparison is done by convoluting the published spectrum with the smearing matrix, and compare to the pre-unfolding input.  The result is shown in figure~\ref{Figure:CrossCheck-FoldedThrust}.  A similar level of discrepancy is observed compared to the unfolded result, indicating that the source of the nonclosure is not from the unfolding procedure, but most likely from the some other corrections that are not applied in this cross check.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{CrossCheck/ThrustReproductionMeow-6.pdf}
+    \includegraphicstwo{CrossCheck/ThrustReproductionMeow-7.pdf}
+    \caption{Comparison of the published spectrum folded with the response matrix (yellow), with the raw observed thrust spectra before unfolding (green).  The ratio is shown on the right, showing a similar amount of disagreement as in the unfolded case.}
+    \label{Figure:CrossCheck-FoldedThrust}
+\end{figure}
+
+
+\clearpage
+
+

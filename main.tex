@@ -1,19 +1,85 @@
-\documentclass{article}
+\documentclass[aps,superscriptaddress,groupedaddress,12pt]{article}
+%\documentclass[aps,prl,twocolumn,superscriptaddress,groupedaddress]{revtex4} 
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1.0in]{geometry}
-
-\title{ALEPH Jet-based Analysis Note}
-\author{Yi Chen + others}
-\date{}
-
+\usepackage[margin=1.25in]{geometry}
+\usepackage{datetime2}
 \usepackage{natbib}
 \usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage[super]{nth}
+\usepackage{color}
+\usepackage{authblk}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=blue,
+}
 
 \begin{document}
+%\leftline{Version: 2 as of \today}
+%\leftline{Primary authors: Yi Chen, Yen-Jie Lee}
+%\leftline{Publication: arXiv}
+%\leftline{MITHIG-MOD-21-001}
+
+\title{Analysis note: jet reconstruction, energy spectra and substructure analyses with archived ALEPH data}
+%\author{Yi Chen, Yen-Jie Lee, Marcello Maggi, ...}
+
+\author[1]{Yi Chen}
+\author[1]{Yen-Jie Lee}
+\author[2]{Marcello Maggi}
+\author[3]{Paoti Chang}
+\author[4]{Yang-Ting Chien}
+\author[5]{Christopher McGinn}
+\author[5]{Dennis Perepelitsa}
+
+
+\affil[1]{Massachusetts Institute of Technology, Cambridge, Massachusetts, USA}
+\affil[2]{INFN Sezione di Bari, Bari, Italy}%
+\affil[3]{National Taiwan University, Taipei, Taiwan}%
+\affil[4]{Georgia State University, Atlanta, Georgia, USA}%
+\affil[5]{University of Colorado Boulder, Boulder, Colorado, USA}%
+
+\date{\today}
 
 \maketitle
 
+
+\begin{abstract}
+The first measurements of anti-$k_{T}$ jet energy spectrum and substructure in hadronic $Z$ decays are presented. The archived $e^+e^-$ annihilation data at a center-of-mass energy of 91 GeV were collected with the ALEPH detector at LEP in 1994. The jet substructure was analyzed as a function of charged particle multiplicity. The results are compared with the perturbative QCD calculations and predictions from the {\sc pythia} v6.1 and {\sc herwig} v7.1.5 event generators. In this note, jet reconstruction procedure, jet energy calibration and the performance with archived ALEPH data and Monte Carlo simulations are also documented.
+\end{abstract}
+%\doublespacing
+
+
+\newcommand{\ak}{anti-k$_\text{T}$\xspace}
+\newcommand{\ee}{$e^+e^-$\xspace}
+\newcommand{\fastjet}{\textsc{FastJet}\xspace}
+\newcommand{\sd}{\textsc{SoftDrop}\xspace}
+\newcommand{\zg}{\ensuremath{z_G}\xspace}
+\newcommand{\Rg}{\ensuremath{R_G}\xspace}
+\newcommand{\ME}{\ensuremath{M/E}\xspace}
+\newcommand{\MgE}{\ensuremath{M_G/E}\xspace}
+\newcommand{\Bayes}{\texttt{BayesUnfold}\xspace}
+\newcommand{\SVD}{\texttt{SVDUnfold}\xspace}
+\newcommand{\includegraphicsfour}[1]{\includegraphics[width=0.24\textwidth]{#1}}
+\newcommand{\includegraphicsthree}[1]{\includegraphics[width=0.32\textwidth]{#1}}
+\newcommand{\includegraphicstwo}[1]{\includegraphics[width=0.45\textwidth]{#1}}
+\newcommand{\includegraphicsone}[1]{\includegraphics[width=0.80\textwidth]{#1}}
+\newcommand{\includegraphicsonewide}[1]{\includegraphics[width=0.95\textwidth]{#1}}
+\newcommand{\includegraphicsonesmall}[1]{\includegraphics[width=0.60\textwidth]{#1}}
+\newcommand{\HybridE}{\ensuremath{E_\text{sum}^\text{hybrid}}\xspace}
+\newcommand{\fixme}[1]{{\color{red} \textbf{#1}}}
+\newcommand{\followup}[1]{{\color{magenta} {#1}}}
+\clearpage
+
+\tableofcontents
+\clearpage
+
 \input{Introduction/Introduction}
+\input{Observable/Observable}
 \input{Samples/Samples}
 \input{EventSelection/EventSelection}
 \input{JetReconstruction/JetReconstruction}
@@ -21,8 +87,10 @@
 \input{JetResolution/JetResolution}
 \input{LeadingJetSelection/LeadingJetSelection}
 \input{Unfolding/Unfolding}
-\input{SystematicUncertainties/SystematicUncertainties}
+\input{Systematics/Systematics}
+\input{CrossCheck/CrossCheck}
+\input{Result/Result}
 
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}

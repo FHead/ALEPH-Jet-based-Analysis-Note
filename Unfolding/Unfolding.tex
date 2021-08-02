@@ -1,2 +1,165 @@
-\section{Unfolding}
+\section{Unfolding}\label{Section:Unfolding}
+
+\subsection{Unfolding Overview}
+
+In order to remove detector effects, an unfolding is performed using the \textsc{RooUnfold} package (v2.0.0).  As nominal, the \Bayes method is used, with the \SVD as cross check.
+
+For jet energy, leading dijet energy, and leading dijet total energy, a 1D unfolding is performed.  For the other jet structure and substructure (mass, groomed $\zg$, groomed angle, groomed mass), because of the significant jet energy migration, a 2D unfolding of the observables in bins of jet energy is done.
+
+
+\subsection{Jet Ranking Studies}
+
+In order to design the unfolding strategy for leading jets, a jet ranking study is performed.  Generated and reconstructed jets are sorted according to their energies and matched to each other.  The frequency of an $m$-th ranked generated jet matched to an $n$-th ranked reconstructed jet is then tabulated for all $m$ and $n$ pairs.  The number of times each pairing occurs is shown in Fig.~\ref{Figure:Unfolding-JetRankingCount} for the archived ALEPH MC sample.  The same table is then normalized either by row, giving the percentage of a given rank generated jet being reconstructed into a different rank reconstructed jet, or by column, giving the percentage of given rank reconstructed jet coming from different rank generated jets.  They are shown in Fig.~\ref{Figure:Unfolding-JetRankingPercentage}.
+
+As can be seen, there is a significant cross-talk between the two leading jets, which is expected as one of the dominant processes in \ee collisions involving jets is the back-to-back production of dijet of similar energy through a $Z$ resonance.
+
+The chance of a generated jet with rank $\geq 2$ being reconstructed into one of the leading reconstructed dijets is generally small.  The largest is the percentage of a \nth{3}-leading generated jet being reconstructed as a second-leading jet at around 3\%.  In this analysis, it is decided that we measure the leading two jets together to avoid the large cross-talk between the two jets, and the effect of the \nth{3} jet is included in the result as systematic uncertainties.
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonesmall{Unfolding/Ranking-2.pdf}
+    \caption{Correlation between generated jet rank and reconstructed jet rank.}
+    \label{Figure:Unfolding-JetRankingCount}
+\end{figure}
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{Unfolding/Ranking-3.pdf}
+    \includegraphicstwo{Unfolding/Ranking-4.pdf}
+    \caption{Normalized jet ranking matrices.  Left: row-normalized matrix showing the probability of a generated jet with a given rank being reconstructed into various different ranks.  Right: column-normalized matrix showing the probability of a reconstructed jet with a given rank coming from various ranks of generated jets.}
+    \label{Figure:Unfolding-JetRankingPercentage}
+\end{figure}
+
+
+\subsection{Smearing Matrices}
+
+The matching between generator level jet and reconstructed level jets is done through opening angle criteria.  To ensure a good matching quality, an opening angle of less than half the jet resolution parameter (0.4) is required for a successful match.
+
+The smearing matrix for the inclusive jet energy is shown in Fig.~\ref{Figure:Unfolding-SmearingMatrixE}.  The figure is normalized such that each row integrates to unity (accounting for bin widths).  A nice diagonal matrix is observed, with some off-diagonal jet energy migration according to the jet resolution.  The response is slightly asymmetrical with a long tail toward the lower energy side.  Jets with energy lower than the lower bound of 10 GeV are included in order to serve as underflow bins and stabilize the unfolding procedure.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsonesmall{Unfolding/MatrixP.pdf}
+    \caption{Smearing matrix for jet energy.}
+    \label{Figure:Unfolding-SmearingMatrixE}
+\end{figure}
+
+The smearing matrix for leading dijet jet energy is shown in the left panel of Fig.~\ref{Figure:Unfolding-SmearingMatrixLeadingDiJet}.  It is nearly identical to the inclusive jet one except a larger binning at the low energy end where the statistics is much lower due to the observable definition.  The smearing matrix for the leading dijet sum energy is shown in the right panel.  It is nearly identical to the inclusive jet smearing matrix except a factor of 2 in the energies.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{Unfolding/MatrixLeadingDiJet.pdf}
+    \includegraphicstwo{Unfolding/MatrixLeadingDiJetSum.pdf}
+    \caption{Smearing matrices for leading dijet jet energy (left) and leading dijet total energy (right).}
+    \label{Figure:Unfolding-SmearingMatrixLeadingDiJet}
+\end{figure}
+
+The smearing matrices for $\Rg$ and $\zg$ can be found in Fig.~\ref{Figure:Unfolding-SmearingMatrixRG} and Fig.~\ref{Figure:Unfolding-SmearingMatrixZG}, respectively.  Each of the subpanel shows the matrix for given generated and reconstructed jet energy intervals.  As expected, there are significant contribution in the off-diagonal blocks, encoding the energy smearing.  The normalization is done for each row across all reconstructed energy blocks.  The first bin in each block includes jets that are completely groomed away by the grooming procedure.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Unfolding/MatrixRG.pdf}
+    \caption{Smearing matrix for \Rg.  Each block represents a different jet energy interval.}
+    \label{Figure:Unfolding-SmearingMatrixRG}
+\end{figure}
+
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Unfolding/MatrixZG.pdf}
+    \caption{Smearing matrix for \zg.  Each block represents a different jet energy interval.}
+    \label{Figure:Unfolding-SmearingMatrixZG}
+\end{figure}
+
+
+The smearing matrices for mass and groomed mass can be found in Fig.~\ref{Figure:Unfolding-SmearingMatrixMass}.  Each of the subpanel shows the matrix for given generated and reconstructed jet energy intervals.  The correlation is high in each subpanel, but there is a trend where the reconstructed mass is lower than the generated mass.
+%
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsone{Unfolding/MatrixME.pdf}
+    \includegraphicsone{Unfolding/MatrixMGE.pdf}
+    \caption{Smearing matrix for ungroomed and groomed jet mass, normalized by the jet energy.  Each block represents a different jet energy interval.}
+    \label{Figure:Unfolding-SmearingMatrixMass}
+\end{figure}
+
+
+\subsection{Toy Data Generation}
+
+For studies of the unfolding, toy data allows fuller control of various tests compared to regular simulated events.  If we take the smearing matrix as given, one can compute the ``no extra statistical fluctuation'' version of the reconstructed spectrum by a matrix multiplication of the smearing matrix and a ``truth'' spectrum.  Based on this perfect reconstructed spectrum, realistic toy datasets can be generated by use of Poisson statistics and which is compatible with the amount of statistics in data.
+
+The toy datasets are used in various studies, described in later sections:
+%
+\begin{enumerate}
+    \item Evaluate and validate the statistical uncertainty reported by the unfolding procedure
+    \item Evaluate the ideal regularization parameter (number of iterations for the case of \Bayes)
+\end{enumerate}
+
+
+\subsection{Statistical Uncertainty Validation}
+
+For each of the observables, 500 statistically independent toy datasets are generated with the generator-level spectrum, the smearing matrix, and amount of statistics in data, as described in the previous section.  All toy datasets are then unfolded, and the results are compared with the input ``truth'' distribution.  Since both the input ``truth'' distribution and the smearing matrix are held constant across all toy datasets, the only variation comes from the statistical nature of the toy datasets sampling from the perfect reconstructed spectrum.  Therefore the spread in the unfolded results is a measure of the statistical uncertainty.  It should be equal to the unfolding uncertainty (for the ensemble of toy datasets), which also quantifies the statistical uncertainty.
+
+In order to quantify the agreement between the spread in unfolded toy datasets and the uncertainty reported by the unfolding, the pull distribution is calculated, where the pull is defined as the difference between the unfolded result and the input ``truth'' bin by bin, divided by the unfolding uncertainty.  
+
+The result is summarized in Fig.~\ref{Figure:Unfolding-StatisticsValidation}.  The results are consistent with one for the most part.  The lower bin indices are underflow bins (marked by gray background), and they are not considered as those bins do not appear in the final result.  In the calculation of pull, Gaussian statistics is assumed, and it is inaccurate when the statistics in the bin is low (marked as purple background), where a Poisson-like adaptation is needed.  Therefore in the tail of the jet substructure quantities (mass, groomed observables), occasionally we see the width of the pull deviating from one.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicsthree{Unfolding/Summary_ToyDataJetEStatistics.pdf}
+    \includegraphicsthree{Unfolding/Summary_ToyDataLeadingDiJetEStatistics.pdf}
+    \includegraphicsthree{Unfolding/Summary_ToyDataLeadingDiJetSumEStatistics.pdf}
+    \includegraphicsthree{Unfolding/Summary_ToyDataJetZGStatistics.pdf}
+    \includegraphicsthree{Unfolding/Summary_ToyDataJetRGStatistics.pdf}\\
+    \includegraphicsthree{Unfolding/Summary_ToyDataJetMEStatistics.pdf}
+    \includegraphicsthree{Unfolding/Summary_ToyDataJetMGEStatistics.pdf}
+    \caption{Width of the bin by bin pull distribution for jet energy, leading dijet energy, leading dijet total energy (top row), \zg, \Rg (middle row), and ungroomed and groomed jet mass (bottom row).  Underflow bins are shaded in gray, and bins with low statistics are shaded in purple.}
+    \label{Figure:Unfolding-StatisticsValidation}
+\end{figure}
+
+
+\subsection{Regularization Parameter Determination}
+
+Another important aspect of the unfolding is the regularization parameter for the unfolding.  In terms of \Bayes, the regularization parameter is the number of iterations.  For \SVD, there is also a regularization parameter as input to the unfolding.
+
+A two-step procedure is employed.  In the first step, the optimal regularization parameter for simulated sample is found through the use of the toy datasets, with the generated spectrum as the ``truth'' input.  A scan through different regularization parameters is performed, and the sum of the square differences across all bins between the unfolded spectrum and the input ``truth'' is used as the metric.
+
+The data is then unfolded using the optimal parameter setting for the simulation.  This unfolded spectrum is used as the ``truth'' input for the second step of the regularization parameter optimization, and the same procedure as the first step is repeated.
+
+\begin{figure}[htp!]
+    \centering
+    \includegraphicstwo{Unfolding/IterationScanJetE-120.pdf}
+    \includegraphicstwo{Unfolding/IterationScanJetE-117.pdf}
+    \includegraphicstwo{Unfolding/DataIterationScanJetE-120.pdf}
+    \includegraphicstwo{Unfolding/DataIterationScanJetE-117.pdf}
+    \caption{Scan of number of iterations for simulation (upper row) and data (lower row).  Both the squared distance (left) and $\chi^2$ (right) are shown.}
+    \label{Figure:Unfolding-IterationScanJetE}
+\end{figure}
+
+An example is shown in Fig.~\ref{Figure:Unfolding-IterationScanJetE} for the determination for the jet energy unfolding.  The result of the first step on simulated spectrum is shown in the first row for both $\chi^2$ and distance squared.  The best iteration (2) is the used as input for the second step on data-like input, and the result is shown in the bottom row.  In this case 17 iterations works the best, after which the unfolding starts to magnify fluctuations and settle into one of the modes, as can be seen in the growing total squared distance.  The $\chi^2$ exhibit a similar trend on a qualitative level.  The $\chi^2$ decreases with increasing iterations both because of the convergence of the unfolded result to the input, and also because of the growing unfolding uncertainty, which becomes dominant when the number of iterations is large.  This is the reason why the number of iterations with the smallest $\chi^2$ is larger than the one using distance as the metric.  The growth in $\chi^2$ is also slower than its distance counterpart at large number of iterations, indicating the inflation of unfolding uncertainty.  For some other observables, the growth of uncertainty is so fast that the $\chi^2$ never increases up to few hundred iterations, well after the squared distance starts to grow rapidly.
+
+For SVD unfolding regularization optimization, the input to the second step is taken from the same input as the second step optimization for \Bayes.
+
+The determined number of iterations, and the SVD regularization parameters are summarized in Tab.~\ref{Table:Unfolding-IterationCount}.
+
+\begin{table}[htp!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \multirow{2}{*}{Observable} & \multicolumn{2}{c|}{\Bayes} & \multicolumn{2}{c|}{\SVD} \\\cline{2-5}
+        & Simulated & Data & Simulated & Data \\\hline
+        Jet Energy & 2 & 17 & 8 & 12 \\\hline
+        Leading Dijet Energy & 1 & 7 & 3 & 4 \\\hline
+        Leading Dijet Total Energy & 1 & 15 & 4 & 6 \\\hline
+        \zg & 6 & 17 & 7 & 29 \\\hline
+        \Rg & 2 & 8 & 12 & 42 \\\hline
+        $M/E$ & 2 & 7 & 5 & 29 \\\hline
+        $M_G/E$ & 2 & 16 & 12 & 34 \\\hline
+    \end{tabular}
+    \caption{Optimized regularization parameter for simulation and data for \Bayes and \SVD.}
+    \label{Table:Unfolding-IterationCount}
+\end{table}
+
+\clearpage
+
 

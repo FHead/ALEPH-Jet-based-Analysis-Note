@@ -1,0 +1,36 @@
+\section{Observable Definition}\label{Section:Observable}
+
+In this analysis, seven different observables are considered, and they can be grouped into two categories: inclusive observables, and leading dijet observables. The inclusive jet observables are the one which are closest to the jet analyses in the hadron colliders. The leading dijet observables, which are less sensitive to jet resolution effects experimentally compared to leading jet analysis, are also described. %\fixme{[add reference]}
+
+\subsection{Inclusive Observables}
+
+In the inclusive jet analysis, all jets within the detector acceptance, $0.2\pi < \theta_\text{jet} < 0.8\pi$, are considered. The following observables are presented in this analysis note which included a wide range of jet spectra and jet substructure analyses:
+%
+\begin{enumerate}
+    \item Jet energy, from 10 GeV up to 50 GeV
+    \item Jet mass to jet energy ratio, in 5 GeV bins of jet energy
+    \item Jet groomed mass to jet energy ratio, in bins of jet energy
+    \item Groomed momentum sharing $\zg$ defined in Sec.~\ref{Subsection:JetGrooming}, in bins of jet energy
+    \item Groomed opening angle $\Rg$ defined in Sec.~\ref{Subsection:JetGrooming}, in bins of jet energy
+\end{enumerate}
+%
+The grooming procedure, which is based on a soft drop algorithm, is outlined in Sec.~\ref{Section:JetReconstruction} and described in detail in the original papers proposing the idea~\cite{Larkoski:2014wba}.  Jet mass is defined as the invariant mass, which is based on the sum of the 4-momenta of all jet constituents.
+
+We present the ratio of the jet mass ($M$) to its energy ($E$) instead of the jet mass itself since there is a strong correlation of the jet mass to the jet energy experimentally.  The measurement of the $M/E$ ratio decouples the jet energy related systematic uncertainties from other systematic effects that affect the jet mass.
+
+For the observables other than jet energy, the spectra are normalized (with area equals to 1) for each jet energy range in order to minimize the effects from the overall jet energy migration which affects the normalization.
+
+\subsection{Leading Dijet Observables}
+
+A separate set of observables is considered for leading dijets, which are the leading and subleading jets ranked by jet energy in the event.  The acceptance requirement of the leading dijets is the same as that in the inclusive jet analyses: $0.2\pi < \theta_\text{jet} < 0.8\pi$.  Since we are interested in measuring the event-wide leading dijet, a functioning definition of what we measure is the spectra of the leading dijets when the both of the two jets are inside the acceptance. Some complications arise when the leading jet(s) coincides with the beam line and is reconstructed with a lower energy. In this analysis, if the leading or subleading jet is out of the acceptance, the event is rejected in the generator level. In the data analysis, the acceptance effect correction is applied based on Monte Carlo simulation. The details of the special selection are designed and described in Sec.~\ref{Section:LeadingJet}.
+
+For the leading dijets, the following observables are measured:
+%
+\begin{enumerate}
+    \item Dijet energy.  This is equivalent to the sum of the leading jet energy spectrum and subleading jet energy spectrum. 
+    \item Dijet total energy.  The spectra of the total energy of the leading dijets.
+\end{enumerate}
+
+
+
+\clearpage
